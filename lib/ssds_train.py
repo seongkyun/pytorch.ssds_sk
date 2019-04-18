@@ -291,7 +291,8 @@ class Solver(object):
             loss_l, loss_c = criterion(out, targets)
 
             # some bugs in coco train2017. maybe the annonation bug.
-            if loss_l.data[0] == float("Inf"):
+            #if loss_l.data[0] == float("Inf"):
+            if loss_l.data.item() == float("Inf"):
                 continue
 
             loss = loss_l + loss_c
@@ -299,8 +300,10 @@ class Solver(object):
             optimizer.step()
 
             time = _t.toc()
-            loc_loss += loss_l.data[0]
-            conf_loss += loss_c.data[0]
+            #loc_loss += loss_l.data[0]
+            #conf_loss += loss_c.data[0]
+            loc_loss += loss_l.data.item()
+            conf_loss += loss_c.data.item()
 
             # log per iter
             log = '\r==>Train: || {iters:d}/{epoch_size:d} in {time:.3f}s [{prograss}] || loc_loss: {loc_loss:.4f} cls_loss: {cls_loss:.4f}\r'.format(
