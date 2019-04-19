@@ -2,6 +2,7 @@
 
 !!IMPORTANT!!
 - This repository is changed and modified just for my experiment.
+- The original code is at https://github.com/ShuangXieIrene/ssds.pytorch
 
 Repository for Single Shot MultiBox Detector and its variants, implemented with pytorch, python3.
 
