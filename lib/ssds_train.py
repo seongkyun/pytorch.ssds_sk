@@ -308,7 +308,8 @@ class Solver(object):
             # log per iter
             log = '\r==>Train: || {iters:d}/{epoch_size:d} in {time:.3f}s [{prograss}] || loc_loss: {loc_loss:.4f} cls_loss: {cls_loss:.4f}\r'.format(
                     prograss='#'*int(round(10*iteration/epoch_size)) + '-'*int(round(10*(1-iteration/epoch_size))), iters=iteration, epoch_size=epoch_size,
-                    time=time, loc_loss=loss_l.data[0], cls_loss=loss_c.data[0])
+                    #time=time, loc_loss=loss_l.data[0], cls_loss=loss_c.data[0])
+                    time=time, loc_loss=loss_l.data.item(), cls_loss=loss_c.data.item())
 
             sys.stdout.write(log)
             sys.stdout.flush()
